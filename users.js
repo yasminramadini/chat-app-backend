@@ -1,11 +1,7 @@
 const users = [];
 
 const addUser = (id, name, room) => {
-  // ubah nama dan room menjadi huruf kecil tanpa spasi
-  const userName = name.trim().toLowerCase();
-  const userRoom = room.trim().toLowerCase();
-
-  const user = { id, name: userName, room: userRoom };
+  const user = { id, name, room };
   users.push(user);
   console.log(users);
   return user;
