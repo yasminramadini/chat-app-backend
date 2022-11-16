@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
+const cors = require("cors")
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 8080;
 const router = require("./router");
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
+app.use(cors());
 app.use(router);
 
 io.on("connection", (socket) => {
